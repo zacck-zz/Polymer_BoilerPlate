@@ -8,7 +8,10 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-
+<!-- import rest of pages -->
+<link rel="import" href="show-icons.html">
+<link rel="import" href="show-list-page.html">
+<link rel="import" href="show-video-page.html">
 <dom-module id="show-app">
   <template>
     <style>
@@ -153,8 +156,8 @@
       selected-attribute="active"
       attr-for-selected="name"
       fallback-selection="show">
-      <show-list page="show"
-        subroute="[[subroute]]"> <show-list-page>
+      <show-list-page name="show"
+        subroute="[[subroute]]"> </show-list-page>
       <show-video-page name="video"
         subroute="[[subroute]]"></show-video-page>
     </iron-pages>
