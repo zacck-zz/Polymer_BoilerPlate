@@ -1,0 +1,7 @@
+{
+  "name": "Polymer Codelab",
+  "short_name": "Polymer Codelab",
+  "description": "Shows for web devssss",
+  "start_url": "/",
+  "display": "standalone"
+}
