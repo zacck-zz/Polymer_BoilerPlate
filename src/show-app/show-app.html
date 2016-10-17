@@ -1,5 +1,14 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+<!-- Import somestull to use in the app shell-->
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
 <dom-module id="show-app">
   <template>
     <style>
@@ -7,7 +16,26 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    <app-location route="{{route}}"></app-location>
+    <!-- Lets add the router for the application this knows the current route, its data, its origin-->
+    <app-route
+      route="{{route}}"
+      pattern="/:page"
+      data="{{routeData}}"
+      tail="{{subroute)}"></app-route>
+
+    <!-- Lets build the universal header for the app built in the app shell PWA baby!!!-->
+    <app-header condenses reaveal threshold="1"><!-- condenses and reveals are the properties for the 'stickyish' app bar  -->
+      <app-toolbar>
+        <paper-icon-button id="leftItem"></paper-icon-button>
+        <a href="/" title ="Developer Channel">
+          <!-- svg log -->
+          <h1 class ="title">Developer Channel</h1>
+        </a>
+      </app-toolbar>
+    </app-header>
+
+
   </template>
 
   <script>
