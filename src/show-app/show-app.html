@@ -16,6 +16,7 @@
         display: block;
       }
     </style>
+      <!-- this is the current component that deals with routing-->
     <app-location route="{{route}}"></app-location>
     <!-- Lets add the router for the application this knows the current route, its data, its origin-->
     <app-route
@@ -34,6 +35,23 @@
         </a>
       </app-toolbar>
     </app-header>
+    <!-- this element is used to select one of its elements as the visible page
+    notice the selected attrib is detemined by app-route so we bind to routeData.page
+    this will allow us to set the active attribute
+    fallback is what the route will go to if something fails
+    -->
+    <iron-pages id="pages"
+      role="main"
+      selected="[[routeData.page]]"
+      selected-attribute="active"
+      attr-for-selected="name"
+      fallback-selection="show">
+      <show-list page="show"
+        subroute="[[subroute]]"> <show-list-page>
+      <show-video-page name="video"
+        subroute="[[subroute]]"></show-video-page>
+    </iron-pages>
+
 
 
   </template>
